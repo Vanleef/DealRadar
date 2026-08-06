@@ -197,7 +197,7 @@ DealRadar/
 ### Pré-requisitos
 
 - Node.js `22.13.0` ou superior.
-- npm compatível com o lockfile.
+- npm 10 ou superior.
 - Ambiente Linux recomendado para os scripts auxiliares de build.
 
 ### Instalação
