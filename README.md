@@ -205,7 +205,7 @@ DealRadar/
 ```bash
 git clone https://github.com/Vanleef/DealRadar.git
 cd DealRadar
-npm ci
+npm install
 ```
 
 ### Desenvolvimento
