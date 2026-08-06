@@ -31,17 +31,47 @@ const worker = {
 
     if (url.pathname === "/_vinext/image") {
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
-      return handleImageOptimization(request, {
+      const response = await handleImageOptimization(request, {
         fetchAsset: (path) => env.ASSETS.fetch(new Request(new URL(path, request.url))),
         transformImage: async (body, { width, format, quality }) => {
           const result = await env.IMAGES.input(body).transform(width > 0 ? { width } : {}).output({ format, quality });
           return result.response();
         },
       }, allowedWidths);
+      return withSecurityHeaders(response);
     }
 
-    return handler.fetch(request, env, ctx);
+    const response = await handler.fetch(request, env, ctx);
+    return withSecurityHeaders(response);
   },
 };
+
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'none'",
+  "form-action 'self'",
+  "img-src 'self' data: https://shared.fastly.steamstatic.com",
+  "font-src 'self' data:",
+  "style-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline'",
+  "connect-src 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
+function withSecurityHeaders(response: Response): Response {
+  const secured = new Response(response.body, response);
+  secured.headers.set("Content-Security-Policy", CONTENT_SECURITY_POLICY);
+  secured.headers.set("Cross-Origin-Opener-Policy", "same-origin");
+  secured.headers.set("Cross-Origin-Resource-Policy", "same-origin");
+  secured.headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()");
+  secured.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  secured.headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  secured.headers.set("X-Content-Type-Options", "nosniff");
+  secured.headers.set("X-Frame-Options", "DENY");
+  secured.headers.delete("X-Powered-By");
+  return secured;
+}
 
 export default worker;
