@@ -36,14 +36,6 @@ A proposta combina três pilares:
 - Correspondência por gênero, tags, descrição, engine e plataformas.
 - Ordenação por relevância, maior desconto, menor preço e melhor avaliação.
 
-Exemplo:
-
-```text
-Texto: "jogos de terror"
-Gênero selecionado: Todos
-Resultado: apenas jogos semanticamente relacionados a terror
-```
-
 ### Comparação de ofertas
 
 - Preço atual e preço original.
@@ -246,18 +238,7 @@ EMAIL_PROVIDER_API_KEY=
 EXCHANGE_RATE_API_KEY=
 ```
 
-Crie um arquivo `.env.local` apenas no ambiente de desenvolvimento. Nunca envie credenciais, tokens, segredos OAuth ou chaves de API ao GitHub.
-
-## Segurança e privacidade
-
-- Senhas de Steam, Google ou Xbox nunca devem ser solicitadas ou armazenadas pelo DealRadar.
-- Autenticação Steam deve ocorrer pelo provedor OpenID oficial.
-- Tokens externos devem ser criptografados e renovados de forma segura.
-- Toda ação relacionada à conta precisa ser validada no servidor.
-- Exclusão de conta deve remover ou anonimizar dados pessoais conforme a política aplicável.
-- 2FA deverá utilizar TOTP ou um provedor de identidade confiável.
-- Alertas precisam oferecer cancelamento simples e proteção contra envio abusivo.
-- Consultas a bibliotecas externas devem respeitar consentimento e configurações de privacidade.
+Crie um arquivo `.env.local` apenas no ambiente de desenvolvimento.
 
 ## Status do projeto
 
@@ -291,7 +272,7 @@ Crie um arquivo `.env.local` apenas no ambiente de desenvolvimento. Nunca envie 
 - [ ] Internacionalização completa da interface.
 - [ ] Busca vetorial e recomendações personalizadas.
 
-## Roadmap sugerido
+## Roadmap
 
 | Fase | Entrega | Resultado esperado |
 | --- | --- | --- |
