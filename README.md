@@ -14,8 +14,6 @@ Acesse a versão navegável:
 
 ### [dealradar.duduroque08.chatgpt.site](https://dealradar.duduroque08.chatgpt.site)
 
-> **Aviso:** os jogos, preços, descontos e históricos exibidos na demonstração são dados representativos usados para validar a experiência. Eles não constituem ofertas em tempo real. A integração com provedores oficiais de preços está prevista na próxima etapa.
-
 ## Sobre o projeto
 
 O **DealRadar** foi idealizado para reduzir o esforço necessário para encontrar um jogo pelo melhor preço possível. Em vez de visitar diferentes lojas, comparar moedas manualmente e acompanhar promoções isoladas, o usuário poderá pesquisar em linguagem natural, aplicar filtros objetivos e manter uma lista personalizada de jogos.
