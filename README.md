@@ -12,7 +12,7 @@
 
 Acesse a versão navegável:
 
-### [dealradar.games)
+### [(https://dealradar.games/)]
 
 ## Sobre o projeto
 
