@@ -12,7 +12,7 @@
 
 Acesse a versão navegável:
 
-### [dealradar.duduroque08.chatgpt.site](https://dealradar.duduroque08.chatgpt.site)
+### [dealradar.games)
 
 ## Sobre o projeto
 
